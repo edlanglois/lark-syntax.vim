@@ -85,7 +85,7 @@ syn region larkRuleColonLine matchgroup=larkRuleColon start=/:/ end=/$/ containe
 syn region larkRuleOrLine matchgroup=larkRuleOr start=/\s\+|\s\+/ end=/$/ contained
     \ contains=larkRuleValue
 
-syn region larkRuleValue start=/\S/ end=/$/ contained
+syn region larkRuleValue start=/[^\s]/ end=/$/ contained
     \ contains=larkRuleGroup,larkRuleMaybe,larkRuleTermNormal,larkRuleTermIgnore,
     \          larkRuleRuleNormal,larkRuleRuleFlatten,larkRuleRuleNoignore,
     \          larkRuleString,larkRuleRegex,larkRuleQuant,larkRuleAlias
@@ -117,17 +117,17 @@ syn match larkRuleTermIgnore /_[_A-Z]\+/ contained
     \           larkRuleRuleNormal,larkRuleRuleFlatten,larkRuleRuleNoignore,
     \           larkRuleString,larkRuleRegex,larkRuleQuant,larkRuleAlias
 
-syn match larkRuleRuleNormal /^[a-z][_a-z]\+/ contained 
+syn match larkRuleRuleNormal /[a-z][_a-z]\+/ contained 
     \ nextgroup=larkRuleGroup,larkRuleMaybe,larkRuleTermNormal,larkRuleTermIgnore,
     \           larkRuleRuleNormal,larkRuleRuleFlatten,larkRuleRuleNoignore,
     \           larkRuleString,larkRuleRegex,larkRuleQuant,larkRuleAlias
 
-syn match larkRuleRuleFlatten /^[_\?][_a-z]\+/ contained
+syn match larkRuleRuleFlatten /[_\?][_a-z]\+/ contained
     \ nextgroup=larkRuleGroup,larkRuleMaybe,larkRuleTermNormal,larkRuleTermIgnore,
     \           larkRuleRuleNormal,larkRuleRuleFlatten,larkRuleRuleNoignore,
     \           larkRuleString,larkRuleRegex,larkRuleQuant,larkRuleAlias
 
-syn match larkRuleRuleNoignore /^\![_a-z]\+/ contained
+syn match larkRuleRuleNoignore /\![_a-z]\+/ contained
     \ nextgroup=larkRuleGroup,larkRuleMaybe,larkRuleTermNormal,larkRuleTermIgnore,
     \           larkRuleRuleNormal,larkRuleRuleFlatten,larkRuleRuleNoignore,
     \           larkRuleString,larkRuleRegex,larkRuleQuant,larkRuleAlias
@@ -164,7 +164,7 @@ syn match larkComment /^#.*$/
 "============================================================================
 " highlighting
 "============================================================================
-hi      larkGroupSymbol      ctermfg=brown
+hi      larkGroupSymbol      ctermfg=brown cterm=bold
 hi link larkMaybeSymbol      larkGroupSymbol
 
 hi      larkTermLHSnormal    ctermfg=red cterm=bold 
@@ -172,7 +172,7 @@ hi      larkTermLHSignore    ctermfg=red
 hi link larkTermColon        larkGroupSymbol
 hi link larkTermTermNormal   larkTermLHSnormal
 hi link larkTermTermIgnore   larkTermLHSignore
-hi      larkTermString       ctermfg=green
+hi      larkTermString       ctermfg=darkgreen
 hi link larkTermRegex        larkTermString
 hi      larkTermQuant        ctermfg=gray
 
@@ -180,6 +180,7 @@ hi      larkRuleLHSnormal    ctermfg=darkblue cterm=bold
 hi      larkRuleLHSflatten   ctermfg=darkblue
 hi      larkRuleLHSnoignore  ctermfg=darkblue
 hi link larkRuleColon        larkTermColon
+hi link larkRuleOr           larkRuleColon
 hi link larkRuleTermNormal   larkTermLHSnormal
 hi link larkRuleTermIgnore   larkTermLHSignore
 hi link larkRuleRuleNormal   larkRuleLHSnormal
@@ -188,7 +189,7 @@ hi link larkRuleRuleNoignore larkRuleLHSnoignore
 hi link larkRuleString       larkTermString
 hi link larkRuleRegex        larkTermRegex
 hi link larkRuleQuant        larkTermQuant
-hi link larkRuleAlias        larkTermQuant
+hi link larkRuleAlias        larkRuleColon
 hi link larkRuleAliasTarget  larkRuleLHSnormal
 
 hi      larkDirective        ctermfg=cyan cterm=bold

@@ -1,1 +1,1 @@
-au bufenter *.lark set syntax=lark
+au BufRead,BufNewFile *.lark set ft=lark
