@@ -1,22 +1,18 @@
 lark-syntax.vim
 ===============
-Attempts to support most syntax in a 
-[lark grammar file](https://github.com/lark-parser/lark).
+[Lark](https://github.com/lark-parser/lark) grammar file syntax highlighting 
+for vim. it will automatically highlight any `*.lark` file.
 
 install
 -------
-I've only tested this with [vim-plug](https://github.com/junegunn/vim-plug)
+- If your using [vim-plug](https://github.com/junegunn/vim-plug), add this
+  to your .vimrc:
 
+```
+Plug 'ssteffl/lark-syntax.vim'
+```
 
-unsupported syntax
-------------------
-Currently unsupported syntax that I'm aware of:
-
-- using '|' in terminal productions (use regex)
-- range literal (use regex)
-
-hardcoded colors
-----------------
-vim highlighting colors are hardcoded right now. they should eventually get 
-linked to builtin highlighting types (like `Keyword`)
+example
+-------
+Take a look at [example.lark](example.lark.pdf).
 
