@@ -234,10 +234,3 @@ hi link larkRuleAliasTarget  larkRuleLHSnormal
 hi      larkDirective        ctermfg=cyan cterm=bold
 hi link larkComment          Comment
 
-"-----------------------------------------------------------------------------
-" debugging
-"-----------------------------------------------------------------------------
-" https://vi.stackexchange.com/a/11877
-nnoremap zS :echo join(reverse(map(synstack(line('.'), col('.')), 
-  \ 'synIDattr(v:val,"name")')),' ')<cr>
-
