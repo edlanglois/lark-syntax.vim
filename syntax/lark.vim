@@ -17,7 +17,7 @@ syn region larkTermProduction start=/^[_A-Z]\+/ skip=/\n\s\+\S/ end=/$/
    \ keepend contains=larkTermLHS,larkTermRHS
 
 "-----------------------------------------------------------------------------
-syn region larkTermLHS start=/^/ end=/\>/ contained 
+syn region larkTermLHS start=/^/ end=/\>/ contained
     \ contains=larkTermLHSnormal,larkTermLHSignore
 
 syn match larkTermLHSnormal /^[A-Z][_A-Z]\+/ contained
@@ -46,17 +46,17 @@ syn region larkTermMaybe matchgroup=larkMaybeSymbol start=/\[/ end=/\]/ containe
     \           larkTermTermIgnore,larkTermRepeat,larkTermString,
     \           larkTermRegex,larkTermQuant
 
-syn match larkTermOr /|/ contained 
+syn match larkTermOr /|/ contained
     \ nextgroup=larkTermGroup,larkTermMaybe,          larkTermTermNormal,
     \           larkTermTermIgnore,larkTermRepeat,larkTermString,
     \           larkTermRegex,larkTermQuant
 
-syn match larkTermTermNormal /[A-Z][_A-Z]\+/ contained 
+syn match larkTermTermNormal /[A-Z][_A-Z]\+/ contained
     \ nextgroup=larkTermGroup,larkTermMaybe,larkTermOr,larkTermTermNormal,
     \           larkTermTermIgnore,larkTermRepeat,larkTermString,
     \           larkTermRegex,larkTermQuant
 
-syn match larkTermTermIgnore /_[_A-Z]\+/ contained 
+syn match larkTermTermIgnore /_[_A-Z]\+/ contained
     \ nextgroup=larkTermGroup,larkTermMaybe,larkTermOr,larkTermTermNormal,
     \           larkTermTermIgnore,larkTermRepeat,larkTermString,
     \           larkTermRegex,larkTermQuant
@@ -76,7 +76,7 @@ syn match larkTermRegex /\v\/([^\/]|(\\\/)|\\)+\/[imulx]*/ contained
     \           larkTermTermIgnore,larkTermRepeat,larkTermString,
     \           larkTermRegex,larkTermQuant
 
-syn match larkTermQuant /\v(\?|\*|\+|\s*\~\s*\d+(\.\.\d+)?)/ contained 
+syn match larkTermQuant /\v(\?|\*|\+|\s*\~\s*\d+(\.\.\d+)?)/ contained
     \ nextgroup=larkTermGroup,larkTermMaybe,larkTermOr,larkTermTermNormal,
     \           larkTermTermIgnore,larkTermRepeat,larkTermString,
     \           larkTermRegex
@@ -88,7 +88,7 @@ syn region larkRuleProduction start=/^[?!_]\?[_a-z]\+/ skip=/\n\s\+\S/ end=/$/
     \ keepend contains=larkRuleLHS,larkRuleRHS
 
 "-----------------------------------------------------------------------------
-syn region larkRuleLHS start=/^/ end=/\>/ contained 
+syn region larkRuleLHS start=/^/ end=/\>/ contained
     \ contains=larkRuleLHSnormal,larkRuleLHSflatten,larkRuleLHSnoignore
 
 syn match larkRuleLHSnormal /^[a-z][_a-z]\+/ contained
@@ -123,25 +123,25 @@ syn region larkRuleMaybe matchgroup=larkMaybeSymbol start=/\[/ end=/\]/ containe
     \           larkRuleOr,larkRuleRepeat,larkRuleString,larkRuleRegex,
     \           larkRuleQuant,larkRuleAlias
 
-syn match larkRuleOr /|/ contained 
+syn match larkRuleOr /|/ contained
     \ nextgroup=larkRuleGroup,larkRuleMaybe,larkRuleTermNormal,larkRuleTermIgnore,
     \           larkRuleRuleNormal,larkRuleRuleFlatten,larkRuleRuleNoignore,
     \                      larkRuleRepeat,larkRuleString,larkRuleRegex,
     \           larkRuleQuant,larkRuleAlias
 
-syn match larkRuleTermNormal /[A-Z][_A-Z]\+/ contained 
+syn match larkRuleTermNormal /[A-Z][_A-Z]\+/ contained
     \ nextgroup=larkRuleGroup,larkRuleMaybe,larkRuleTermNormal,larkRuleTermIgnore,
     \           larkRuleRuleNormal,larkRuleRuleFlatten,larkRuleRuleNoignore,
     \           larkRuleOr,larkRuleRepeat,larkRuleString,larkRuleRegex,
     \           larkRuleQuant,larkRuleAlias
 
-syn match larkRuleTermIgnore /_[_A-Z]\+/ contained 
+syn match larkRuleTermIgnore /_[_A-Z]\+/ contained
     \ nextgroup=larkRuleGroup,larkRuleMaybe,larkRuleTermNormal,larkRuleTermIgnore,
     \           larkRuleRuleNormal,larkRuleRuleFlatten,larkRuleRuleNoignore,
     \           larkRuleOr,larkRuleRepeat,larkRuleString,larkRuleRegex,
     \           larkRuleQuant,larkRuleAlias
 
-syn match larkRuleRuleNormal /[a-z][_a-z]\+/ contained 
+syn match larkRuleRuleNormal /[a-z][_a-z]\+/ contained
     \ nextgroup=larkRuleGroup,larkRuleMaybe,larkRuleTermNormal,larkRuleTermIgnore,
     \           larkRuleRuleNormal,larkRuleRuleFlatten,larkRuleRuleNoignore,
     \           larkRuleOr,larkRuleRepeat,larkRuleString,larkRuleRegex,
@@ -177,7 +177,7 @@ syn match larkRuleRegex /\v\/([^\/]|(\\\/)|\\)+\/[imulx]*/ contained
     \           larkRuleOr,larkRuleRepeat,larkRuleString,larkRuleRegex,
     \           larkRuleQuant,larkRuleAlias
 
-syn match larkRuleQuant /\v(\?|\*|\+|\s*\~\s*\d+(\.\.\d+)?)/ contained 
+syn match larkRuleQuant /\v(\?|\*|\+|\s*\~\s*\d+(\.\.\d+)?)/ contained
     \ nextgroup=larkRuleGroup,larkRuleMaybe,larkRuleTermNormal,larkRuleTermIgnore,
     \           larkRuleRuleNormal,larkRuleRuleFlatten,larkRuleRuleNoignore,
     \           larkRuleOr,larkRuleRepeat,larkRuleString,larkRuleRegex,
@@ -185,7 +185,7 @@ syn match larkRuleQuant /\v(\?|\*|\+|\s*\~\s*\d+(\.\.\d+)?)/ contained
 
 "-----------------------------------------------------------------------------
 syn match larkRuleAlias /->/ contained nextgroup=larkRuleAliasTarget
-syn match larkRuleAliasTarget /[a-z][_a-z]*/ contained 
+syn match larkRuleAliasTarget /[a-z][_a-z]*/ contained
 
 "============================================================================
 " directives
