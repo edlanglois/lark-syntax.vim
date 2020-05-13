@@ -200,30 +200,29 @@ syn match larkComment /^\/\/.*$/
 "============================================================================
 " highlighting
 "============================================================================
-hi      larkGroupSymbol      ctermfg=brown cterm=bold
 hi link larkMaybeSymbol      larkGroupSymbol
 
-hi      larkTermLHSnormal    ctermfg=red cterm=bold 
-hi      larkTermLHSignore    ctermfg=red
+hi link larkTermLHSnormal    Type
+hi link larkTermLHSignore    larkTermLHSnormal
 hi link larkTermColon        larkGroupSymbol
 hi link larkTermOr           larkTermColon
-hi link larkTermTermNormal   larkTermLHSnormal
-hi link larkTermTermIgnore   larkTermLHSignore
-hi      larkTermRepeat       ctermfg=gray
-hi      larkTermString       ctermfg=darkgreen
+hi link larkTermTermNormal   Identifier
+hi link larkTermTermIgnore   larkTermTermNormal
+hi link larkTermRepeat       Operator
+hi link larkTermString       String
 hi link larkTermRegex        larkTermString
 hi link larkTermQuant        larkTermRepeat
 
-hi      larkRuleLHSnormal    ctermfg=darkblue cterm=bold 
-hi      larkRuleLHSflatten   ctermfg=darkblue
-hi      larkRuleLHSnoignore  ctermfg=darkblue
+hi link larkRuleLHSnormal    Type
+hi link larkRuleLHSflatten   larkRuleLHSnormal
+hi link larkRuleLHSnoignore  larkRuleLHSnormal
 hi link larkRuleColon        larkTermColon
 hi link larkRuleOr           larkRuleColon
-hi link larkRuleTermNormal   larkTermLHSnormal
-hi link larkRuleTermIgnore   larkTermLHSignore
-hi link larkRuleRuleNormal   larkRuleLHSnormal
-hi link larkRuleRuleFlatten  larkRuleLHSflatten
-hi link larkRuleRuleNoignore larkRuleLHSnoignore
+hi link larkRuleTermNormal   larkTermTermNormal
+hi link larkRuleTermIgnore   larkTermTermIgnore
+hi link larkRuleRuleNormal   Identifier
+hi link larkRuleRuleFlatten  larkRuleRuleNormal
+hi link larkRuleRuleNoignore larkRuleRuleNormal
 hi link larkRuleRepeat       larkTermRepeat
 hi link larkRuleString       larkTermString
 hi link larkRuleRegex        larkTermRegex
@@ -231,6 +230,5 @@ hi link larkRuleQuant        larkTermQuant
 hi link larkRuleAlias        larkRuleColon
 hi link larkRuleAliasTarget  larkRuleLHSnormal
 
-hi      larkDirective        ctermfg=cyan cterm=bold
+hi link larkDirective        PreProc
 hi link larkComment          Comment
-
